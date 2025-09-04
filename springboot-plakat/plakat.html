@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gruppe 5 – Spring Cloud | Plakat</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+  </script>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --fg: #e6eef9;
+      --muted: #9fb3c8;
+      --accent: #38b2ac;
+      --accent-2: #7f9cf5;
+      --card: #11172e;
+      --card-2: #0f1530;
+      --border: #26304a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 85% -20%, #223258 0%, rgba(34,50,88,0) 60%),
+                  radial-gradient(1000px 500px at -10% 20%, #124b56 0%, rgba(18,75,86,0) 60%),
+                  var(--bg);
+    }
+    header {
+      position: relative;
+      padding: 56px 16px 24px;
+      background: linear-gradient(135deg, rgba(56,178,172,0.18), rgba(127,156,245,0.18));
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    .title {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.4px;
+    }
+    .subtitle { margin: 8px 0 0; color: var(--muted); }
+
+    .hero {
+      position: relative;
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #081022;
+    }
+    .hero img { width: 100%; display: block; opacity: 0.9; }
+    .hero .caption {
+      position: absolute;
+      right: 12px; bottom: 10px;
+      font-size: 12px; color: #d9e4ff; opacity: 0.9;
+      background: rgba(20, 26, 46, 0.6);
+      padding: 6px 10px; border-radius: 8px;
+    }
+
+    section { padding: 28px 0; }
+    h2 { margin: 0 0 12px; font-size: clamp(20px, 3vw, 28px); }
+    p { color: #ccdaef; line-height: 1.7; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 14px 16px;
+    }
+    .card h3 { margin-top: 0; font-size: 18px; color: #eaf2ff; }
+    .card p { margin: 6px 0 0; color: #bed1ea; font-size: 14px; }
+
+    .img-row {
+      display: grid; gap: 12px; margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .img-row figure {
+      margin: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #0a132a;
+    }
+    .img-row img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .img-row figcaption { padding: 8px 10px; font-size: 12px; color: #cdd9f1; background: #0d1734; }
+
+    .mermaid-block {
+      background: #0a132a; border: 1px solid var(--border); border-radius: 12px; padding: 12px;
+      overflow-x: auto; margin-top: 14px;
+    }
+    .note {
+      font-size: 13px; color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 10px; margin-top: 10px;
+    }
+    .resources a { color: var(--accent-2); text-decoration: none; }
+    footer { border-top: 1px solid var(--border); color: var(--muted); padding: 24px 0 40px; }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="title">Gruppe 5 · Spring Cloud</h1>
+      <p class="subtitle">Microservices-Toolkit: Config, Discovery, Gateway, Resilience, Tracing</p>
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=2400&q=80" alt="Modern data center hallway" />
+        <span class="caption">Hero image: Taylor Vick (Unsplash)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Was ist Spring Cloud?</h2>
+      <p>
+        Spring Cloud bündelt bewährte Bausteine für verteilte Systeme: zentrale Konfiguration
+        (<strong>Config Server</strong>), Service-Registrierung &amp; -Entdeckung
+        (<strong>Eureka/Consul</strong>), intelligentes Routing (<strong>Spring Cloud Gateway</strong>),
+        Lastverteilung, <strong>Circuit Breaker</strong> (Resilience4j) und verteiltes Tracing
+        (<strong>Sleuth + Zipkin</strong>). Ziel: robuste, skalierbare Microservices schneller in Produktion bringen.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Config</h3>
+          <p>Zentrale, versionierte Konfiguration für alle Services (z. B. über Git).</p>
+        </div>
+        <div class="card">
+          <h3>Discovery</h3>
+          <p>Dynamisches Auffinden von Services ohne feste Hostnamen.</p>
+        </div>
+        <div class="card">
+          <h3>Gateway</h3>
+          <p>Eintrittspunkt für Clients: Routing, AuthN/Z, Observability, Caching.</p>
+        </div>
+        <div class="card">
+          <h3>Resilience</h3>
+          <p>Circuit Breaker, Timeouts, Retries, Bulkheads – Fehler bleiben lokal.</p>
+        </div>
+        <div class="card">
+          <h3>Tracing</h3>
+          <p>Korrelation von Aufrufen über Services hinweg (Trace-/Span-IDs).</p>
+        </div>
+      </div>
+
+      <div class="img-row">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=80" alt="Code and laptop on desk" />
+          <figcaption>Background visual: Luca Bravo (Unsplash)</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1800&q=80" alt="Abstract cloud visualization" />
+          <figcaption>Abstract cloud: Unsplash</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Architekturübersicht</h2>
+      <div class="mermaid-block">
+        <div class="mermaid">
+
+graph LR
+Client[Client] -->|HTTPS| Gateway[Spring Cloud Gateway]
+Gateway -->|Route| SvcA[Service A]
+Gateway -->|Route| SvcB[Service B]
+SvcA -->|Register| Eureka[(Eureka Registry)]
+SvcB -->|Register| Eureka
+SvcA -->|Fetch config| Config[Config Server]
+SvcB -->|Fetch config| Config
+SvcA --> DB[(Database)]
+SvcB --> Ext[(External API)]
+SvcA --> Sleuth[Tracing (Sleuth/Zipkin)]
+SvcB --> Sleuth
+classDef node fill:#162042,stroke:#2a3a64,color:#e6eef9;
+classDef infra fill:#0e1a36,stroke:#37517b,color:#e6eef9;
+class Client,SvcA,SvcB,DB,Ext,Sleuth node;
+class Gateway,Eureka,Config infra;
+
+</div>
+</div>
+<p class="note">Gateway bündelt Cross-Cutting-Concerns; Services registrieren sich selbst und lesen Konfiguration zur Laufzeit.
+</p>
+</section>
+
+    <section>
+      <h2>Ablauf: Request durch das System</h2>
+      <div class="mermaid-block">
+        <div class="mermaid">
+
+sequenceDiagram
+autonumber
+participant U as User
+participant G as API Gateway
+participant A as Service A
+participant B as Service B
+participant R as Eureka Registry
+participant C as Config Server
+
+U->>G: HTTP Request /orders
+G->>R: Discover Service A
+R-->>G: Instance list
+G->>A: Forward request
+Note over A: Config fetched on startup
+A->>C: (On bootstrap) load config
+A->>B: Call dependent service
+B-->>A: Response
+A-->>G: Aggregated response
+G-->>U: 200 OK
+
+</div>
+</div>
+</section>
+
+    <section class="resources">
+      <h2>Weiterführende Ressourcen</h2>
+      <ul>
+        <li><a href="https://spring.io/projects/spring-cloud">Offizielle Spring&nbsp;Cloud Projekte</a></li>
+        <li><a href="https://start.spring.io/">start.spring.io – Projekt-Generator</a></li>
+        <li><a href="https://resilience4j.readme.io/">Resilience4j Doku</a></li>
+        <li><a href="https://zipkin.io/">Zipkin Tracing</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Credits / Bildnachweise:</div>
+      <div>Unsplash – Taylor Vick (Data Center), Luca Bravo (Laptop &amp; Code), Abstract cloud visual.</div>
+      <div>Mermaid.js via jsDelivr CDN.</div>
+    </div>
+  </footer>
+</body>
+</html>
