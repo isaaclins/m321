@@ -1,0 +1,15 @@
+---
+alwaysApply: true
+description: "A guide for remembering shell current working directory and structure."
+---
+# Shell Interaction Guide
+
+When working with the terminal, it's important to be mindful of the current working directory to avoid errors.
+
+## Best Practices
+
+1.  **Verify Your Location**: Before executing commands that rely on the current path, use `pwd` to confirm your current directory.
+
+2.  **Understand Directory Structure**: To get a clear picture of the directory structure you are in, use `ls -R` or `tree` (if available). This provides a recursive view of all files and folders.
+
+3.  **Check Shell State**: The shell session may persist between commands. If you try to `cd` into a directory you just created and it fails, you might already be in that directory. Verify with `pwd` before attempting to change directories again.

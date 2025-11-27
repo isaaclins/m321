@@ -1,0 +1,99 @@
+---
+alwaysApply: true
+---
+
+# Teacher Task Workflow
+
+Follow this workflow for every new task the user gives (from images, text, or context).
+
+## 0) Understand the Task
+
+- Read all provided context (images, text, code, prior edits).
+- Extract concrete deliverables and constraints.
+- If anything is ambiguous, resolve from context; only ask if truly blocked.
+
+## 1) Create a Dedicated Folder for the Task
+
+- Derive a concise, kebab-case folder name that represents the task.
+- Create a parent folder for the task at the workspace root.
+- Inside it, create any required subfolders (e.g., `microservice`, `monolith`).
+- Keep all generated artifacts scoped under this task folder to avoid clutter.
+
+Example: “create a java microservice and a java monolith for speed comparison” → `java-speed-test/` with subfolders `microservice/` and `monolith/`.
+
+## 2) Create and Maintain a Checklist (tasks with SUBTASKS)
+
+- In the task root, create `tasks.md` with a hierarchical checklist of tasks and subtasks.
+- Keep items small and actionable; prefer several subtasks over broad tasks.
+- Update `tasks.md` after every step (mark progress, add/adjust subtasks as needed).
+
+Suggested `tasks.md` template:
+
+```md
+# Tasks
+
+1. High-level task A
+   1.1 Subtask A1
+   1.2 Subtask A2
+2. High-level task B
+   2.1 Subtask B1
+   2.2 Subtask B2
+
+## Progress Log
+
+- [yyyy-mm-dd hh:mm] What changed, what’s next
+```
+
+## 3) Track Progress Continuously
+
+- After each action or prompt, immediately update `tasks.md` to reflect status.
+- Use a brief progress log entry per step with what was done and what’s next.
+
+## 4) Cleanup Before Finishing
+
+- Remove temporary or unused files, scratch notes, and dead code inside the task folder.
+- Keep only what a teacher expects to review (sources, configs, README/docs, results).
+- Ensure the repository remains tidy (no random artifacts outside the task folder).
+
+## 5) Document the Work
+
+- In the task root, create `documentation.md` describing:
+  - The task description (what was requested)
+  - Approach and rationale
+  - Steps/commands to reproduce
+  - Results and verification steps
+  - Cleanup performed and any follow-ups
+
+Suggested `documentation.md` outline:
+
+```md
+# Documentation
+
+## Task
+
+Briefly restate the assignment.
+
+## Approach
+
+Key decisions and rationale.
+
+## Steps to Reproduce
+
+Commands, configs, and how to run/verify.
+
+## Results
+
+What works, measurements (if any), screenshots/links.
+
+## Cleanup
+
+What was removed and why. Follow-ups if needed.
+```
+
+## Operational Notes
+
+- Prefer absolute paths when running tools/commands as appropriate.
+- Use non-interactive flags for commands.
+- Keep edits minimal and targeted; don’t reformat unrelated code.
+- When creating new files for a task, place them under the task’s folder.
+
